@@ -1,0 +1,406 @@
+/* --- GENERAL --- */
+body {
+  font-family: 'Times New Roman', serif;
+  background-color: #fff;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  zoom: 1.15;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  line-height: 1.8;
+  font-size: 1.1em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- HEADER --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.header-left span {
+  font-size: 1.3em;
+  font-weight: 400;
+}
+
+/* --- MENÚ HAMBURGUESA --- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Botón (contiene las 3 barras .bar) */
+.menu-icon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.25s ease;
+}
+
+/* Las tres barras visibles: color NEGRO por defecto */
+.menu-icon .bar {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: #000;
+  border-radius: 3px;
+  transition: transform 0.28s cubic-bezier(.2,.9,.3,1), opacity 0.2s ease, background-color 0.25s ease;
+  transform-origin: center;
+}
+
+/* Hover ligero */
+.menu-icon:hover {
+  transform: scale(1.05);
+}
+
+/* Estado activo (abierto) -> transformar barras para formar la cruz */
+.menu-icon.active .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-icon.active .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-icon.active .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Color rosa al abrir (cruz) */
+.menu-icon.active .bar {
+  background-color: #ff0055;
+}
+
+/* Contenedor del menú desplegable */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0px 8px 24px rgba(0,0,0,0.18);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  padding: 6px 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 18px;
+  display: block;
+  font-size: 0.98em;
+}
+
+.dropdown-content a:hover {
+  background-color: #ff0055;
+  color: white;
+}
+
+/* separador estilo */
+.menu-sep {
+  margin: 6px 12px;
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Mostrar menú */
+.dropdown-content.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- HERO --- */
+.hero {
+  text-align: center;
+  padding: 120px 40px;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.btn {
+  background: #ff0055;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.hero-image img {
+  margin-top: 40px;
+  width: 95%;
+  max-width: 1200px;
+  border-radius: 20px;
+}
+
+/* --- SECCIONES --- */
+.section {
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.separator {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* --- CARDS --- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.card {
+  width: 320px;
+}
+
+.card h3 {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.card p {
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+
+/* --- MÉTODOS DE COMPRA --- */
+.purchase {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 60px;
+}
+
+.purchase-text {
+  max-width: 500px;
+  text-align: left;
+  font-size: 1.1em;
+}
+
+.purchase-text h3 {
+  text-align: left;
+  font-size: 1.5em;
+}
+
+.purchase-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.purchase-text li {
+  margin-bottom: 12px;
+  font-size: 1.1em;
+}
+
+.purchase-img img {
+  width: 450px;
+  border-radius: 15px;
+}
+
+/* --- AGRADECIMIENTO --- */
+.thank {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 100px 30px;
+}
+
+.thank blockquote {
+  font-style: italic;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.profile {
+  margin-top: 25px;
+}
+
+.profile img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.profile p {
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+/* --- TWITTER --- */
+.twitter {
+  background: #f9f9f9;
+  padding: 100px 30px;
+  text-align: center;
+}
+
+.twitter h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.twitter p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.btn-black {
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .purchase-img img { width: 380px; }
+  .purchase-text { max-width: 420px; }
+}
+
+@media (max-width: 768px) {
+  body { zoom: 1; }
+
+  header {
+    padding: 15px 25px;
+  }
+
+  .menu-icon {
+    padding: 6px;
+  }
+
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero-image img {
+    width: 100%;
+  }
+
+  .cards { gap: 20px; }
+  .card { width: 100%; max-width: 420px; }
+}
+
+/* --- BOTÓN ROSA SOLO EN catalogo.html --- */
+body.catalogo .menu-icon .bar {
+  background-color: #ff0055;
+}
+
+body.catalogo .menu-icon.active .bar {
+  background-color: #ff0055;
+}
+
+/* --- AJUSTE DE PORTADAS EN catalogo.html (más pequeñas y proporcionales) --- */
+body.catalogo .juego-card {
+  background-color: #111;
+  color: #fff;
+  width: 215px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.catalogo .juego-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(255, 0, 85, 0.4);
+}
+
+body.catalogo .juego-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  background-color: #000;
+  border-bottom: 2px solid #111;
+  display: block;
+  margin: 0 auto;
+}
+
+body.catalogo .juego-card h3 {
+  font-size: 1em;
+  margin: 10px 0 5px;
+}
+
+body.catalogo .juego-card p {
+  font-size: 0.9em;
+  color: #ccc;
+  margin: 3px 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  body.catalogo .juego-card {
+    width: 190px;
+  }
+  body.catalogo .juego-card img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  body.catalogo .juego-card {
+    width: 100%;
+    max-width: 330px;
+  }
+
+  body.catalogo .juego-card img {
+    height: 270px;
+  }
+}
