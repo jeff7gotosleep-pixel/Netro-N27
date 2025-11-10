@@ -407,3 +407,16 @@ body.catalogo .precio {
     height: 270px;
   }
 }
+
+/* --- ARREGLO: evitar que las tarjetas se corten al hacer hover --- */
+body.catalogo main.catalogo-grid {
+  overflow: visible;
+  padding-right: 40px; /* espacio lateral para el hover */
+  padding-bottom: 40px;
+}
+
+/* Opcional: animación más suave y sin recorte en los bordes */
+body.catalogo .juego-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  z-index: 2; /* eleva la tarjeta sobre las demás */
+}
