@@ -73,30 +73,11 @@
     .banner-top {
       width: 100%;
       height: 300px;
-      background-image: url("https://btwon1.wordpress.com/wp-content/uploads/2025/11/proyecto-nuevo.png?w=1440");
+      background-image: url("https://cdn.cloudflare.steamstatic.com/steam/apps/2064870/header.jpg");
       background-size: cover;
       background-position: center;
       margin-bottom: 35px;
       border-bottom: 3px solid #ff0055;
-      cursor: zoom-in;
-    }
-
-    /* BANNER EXPANDIDO */
-    .banner-expanded {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-image: inherit;
-      background-size: cover;
-      background-position: center;
-      background-color: rgba(0, 0, 0, 0.95);
-      z-index: 2000;
-      border: none !important;
-      margin: 0 !important;
-      cursor: zoom-out;
-      animation: fadeIn 0.2s ease;
     }
 
     /* CATÁLOGO */
@@ -182,7 +163,7 @@
   </header>
 
   <!-- BANNER -->
-  <div class="banner-top" id="banner"></div>
+  <div class="banner-top"></div>
 
   <main class="catalogo-grid" id="catalogo">
 
@@ -234,9 +215,7 @@
     (function () {
       const menuBtn = document.getElementById("menu-btn");
       const menuContent = document.getElementById("menu-content");
-      const banner = document.getElementById("banner");
 
-      // desplegable menú
       menuBtn.addEventListener("click", function (e) {
         e.stopPropagation();
         const opened = menuContent.classList.toggle("show");
@@ -259,19 +238,6 @@
           menuBtn.setAttribute("aria-expanded", "false");
         }
       });
-
-      // ✅ banner expandible
-      banner.addEventListener("click", () => {
-        banner.classList.toggle("banner-expanded");
-      });
-
-      // salir al hacer click fuera
-      document.addEventListener("click", (e) => {
-        if (banner.classList.contains("banner-expanded") && e.target !== banner) {
-          banner.classList.remove("banner-expanded");
-        }
-      });
-
     })();
   </script>
 
