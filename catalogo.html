@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Juegos</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0e0e0e;
+      border: none;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    nav {
+      position: relative;
+    }
+
+    /* MENÚ DESPLEGABLE */
+    .dropdown-content {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background-color: #181818;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      min-width: 180px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+    }
+
+    .dropdown-content.show {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .dropdown-content a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-bottom: 1px solid #222;
+      transition: background 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ff0055;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ✅ BANNER EXPANDIBLE */
+    .banner-top {
+      width: 100%;
+      height: 300px;
+      background-image: url("https://cdn.cloudflare.steamstatic.com/steam/apps/2064870/header.jpg");
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 35px;
+      border-bottom: 3px solid #ff0055;
+      cursor: zoom-in;
+      transition: transform 0.4s ease;
+    }
+
+    .banner-expanded {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100vw !important;
+      height: 100vh !important;
+      background-size: cover !important;
+      background-position: center !important;
+      z-index: 2000 !important;
+      border: none !important;
+      margin: 0 !important;
+      cursor: zoom-out;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .banner-top {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .banner-top {
+        height: 160px;
+      }
+    }
+
+    /* CATÁLOGO */
+    main.catalogo-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .juego-card {
+      background-color: #181818;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .juego-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(255, 0, 85, 0.2);
+    }
+
+    .juego-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .juego-info {
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    .juego-info h3 {
+      font-size: 1rem;
+      margin: 5px 0;
+      text-align: center;
+    }
+
+    @media (max-width: 1200px) {
+      main.catalogo-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      main.catalogo-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      main.catalogo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body class="catalogo">
+
+  <header>
+    <h1>Catálogo de Juegos</h1>
+
+    <nav class="dropdown">
+      <button class="menu-icon" id="menu-btn" aria-expanded="false" aria-controls="menu-content">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="dropdown-content" id="menu-content">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="#">Buscar</a>
+        <hr style="border: 0; height: 1px; background: #333; margin: 5px 0;">
+        <a href="#">Pedir un juego</a>
+        <a href="#">Noticias</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ✅ BANNER -->
+  <div class="banner-top" id="banner"></div>
+
+  <main class="catalogo-grid" id="catalogo">
+
+    <!-- tus tarjetas... -->
+  </main>
+
+  <script>
+    (function () {
+      const menuBtn = document.getElementById("menu-btn");
+      const menuContent = document.getElementById("menu-content");
+      const banner = document.getElementById("banner");
+
+      // MENÚ
+      menuBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const opened = menuContent.classList.toggle("show");
+        menuBtn.classList.toggle("active", opened);
+        menuBtn.setAttribute("aria-expanded", opened ? "true" : "false");
+      });
+
+      window.addEventListener("click", function (e) {
+        if (!menuContent.contains(e.target) && e.target !== menuBtn) {
+          menuContent.classList.remove("show");
+          menuBtn.classList.remove("active");
+          menuBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // ✅ BANNER EXPANDIBLE
+      banner.addEventListener("click", () => {
+        banner.classList.toggle("banner-expanded");
+      });
+
+      // CERRAR AL HACER CLICK FUERA
+      document.addEventListener("click", (e) => {
+        if (banner.classList.contains("banner-expanded") && e.target !== banner) {
+          banner.classList.remove("banner-expanded");
+        }
+      });
+
+      // CERRAR CON ESCAPE
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          banner.classList.remove("banner-expanded");
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
