@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catálogo de Juegos</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://btwon1.wordpress.com/wp-content/uploads/2025/11/3810732_ico.png" />
-
   <style>
     body {
       background-color: #0e0e0e;
@@ -75,10 +71,9 @@
     /* CATÁLOGO */
     main.catalogo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      grid-template-columns: repeat(6, 1fr);
       gap: 20px;
       padding: 40px;
-      overflow: visible;
     }
 
     .juego-card {
@@ -131,7 +126,6 @@
     }
   </style>
 </head>
-
 <body class="catalogo">
   <header>
     <h1>Catálogo de Juegos</h1>
@@ -200,7 +194,7 @@
     <div class="juego-card" onclick="location.href='catalogo/battlefield6.html'">
       <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/greografia.png" alt="Geografia" />
       <div class="juego-info">
-        <h3>Geografia</h3>
+        <h3>Greografia</h3>
       </div>
     </div>
     
