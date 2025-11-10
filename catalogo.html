@@ -83,10 +83,11 @@
       overflow: hidden;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       cursor: pointer;
+      transform: scale(1.08); /* AUMENTO GENERAL DE ESCALA */
     }
 
     .juego-card:hover {
-      transform: translateY(-5px);
+      transform: scale(1.15) translateY(-5px); /* MÁS GRANDE EN HOVER */
       box-shadow: 0 4px 20px rgba(255, 0, 85, 0.2);
     }
 
@@ -104,6 +105,7 @@
     .juego-info h3 {
       font-size: 1rem;
       margin: 5px 0;
+      text-align: center; /* IMPORTANTE: CENTRADO */
     }
 
     .juego-info ul {
