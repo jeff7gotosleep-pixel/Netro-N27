@@ -373,15 +373,18 @@ body.catalogo .juego-card img {
   margin: 0 auto;
 }
 
+/* 🔥 CAMBIO: titulo centrado */
 body.catalogo .juego-card h3 {
   font-size: 1em;
   margin: 10px 0 5px;
+  text-align: center;
 }
 
-body.catalogo .juego-card p {
-  font-size: 0.9em;
-  color: #ccc;
-  margin: 3px 0;
+/* 🔥 CAMBIO: ocultar descripción, listas y precio */
+body.catalogo .juego-card p,
+body.catalogo .juego-card ul,
+body.catalogo .precio {
+  display: none;
 }
 
 /* --- Responsive --- */
