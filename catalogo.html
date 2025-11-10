@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catálogo de Juegos</title>
-
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       background-color: #0e0e0e;
@@ -31,38 +31,6 @@
 
     nav {
       position: relative;
-    }
-
-    /* BOTÓN MENÚ */
-    .menu-icon {
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      padding: 10px;
-    }
-
-    .menu-icon .bar {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      transition: 0.3s;
-      border-radius: 2px;
-    }
-
-    .menu-icon.active .bar:nth-child(1) {
-      transform: rotate(45deg) translateY(8px);
-    }
-
-    .menu-icon.active .bar:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-icon.active .bar:nth-child(3) {
-      transform: rotate(-45deg) translateY(-8px);
     }
 
     /* MENÚ DESPLEGABLE */
@@ -97,20 +65,14 @@
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* CATÁLOGO */
     main.catalogo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      grid-template-columns: repeat(6, 1fr);
       gap: 20px;
       padding: 40px;
     }
@@ -145,12 +107,30 @@
       margin: 5px 0;
       text-align: center;
     }
+
+    @media (max-width: 1200px) {
+      main.catalogo-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      main.catalogo-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      main.catalogo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   </style>
 </head>
-
 <body class="catalogo">
   <header>
     <h1>Catálogo de Juegos</h1>
+
     <nav class="dropdown">
       <button class="menu-icon" id="menu-btn" aria-expanded="false" aria-controls="menu-content">
         <span class="bar"></span>
@@ -171,72 +151,44 @@
 
   <main class="catalogo-grid" id="catalogo">
     <div class="juego-card" onclick="location.href='catalogo/valorant.html'">
-      <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/ingles-mapster.png" alt="Ingles" />
+      <img src="https://mackenzidestore.wordpress.com/wp-content/uploads/2025/11/nanoposter.png" alt="NanoApostle" />
       <div class="juego-info">
-        <h3>Inglés</h3>
+        <h3>NanoApostle</h3>
       </div>
     </div>
 
-    <div class="juego-card" onclick="location.href='catalogo/biologia.html'">
-      <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/biolo-gia.png" alt="Biología" />
+    <div class="juego-card" onclick="location.href='catalogo/gta-v.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png" />
       <div class="juego-info">
-        <h3>Biología</h3>
+        <h3>Grand Theft Auto V Enhanced</h3>
       </div>
     </div>
 
-    <div class="juego-card" onclick="location.href='catalogo/quimica.html'">
-      <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/quimica.png" alt="Química" />
+    <div class="juego-card" onclick="location.href='catalogo/fnaf.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/5c65df08b03a43eb8be026116ef8e979/five-nights-at-freddys-into-the-pit-161gk.png?resize=1&w=360&h=480&quality=medium" alt="Five Nights at Freddy's" />
       <div class="juego-info">
-        <h3>Química</h3>
+        <h3>Five Nights at Freddy’s: Into the Pit</h3>
       </div>
     </div>
 
-    <div class="juego-card" onclick="location.href='catalogo/salud.html'">
-      <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/salud.png" alt="Salud y Adolescencia" />
+    <div class="juego-card" onclick="location.href='catalogo/bendy.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png" alt="Bendy" />
       <div class="juego-info">
-        <h3>Salud y Adolescencia</h3>
+        <h3>Bendy and the Ink Machine</h3>
       </div>
     </div>
 
-    <div class="juego-card" onclick="location.href='catalogo/fisica.html'">
-      <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/fisica.png" alt="Física" />
+    <div class="juego-card" onclick="location.href='catalogo/battlefield6.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png" alt="Battlefield 6" />
       <div class="juego-info">
-        <h3>Física</h3>
+        <h3>Battlefield™ 6</h3>
       </div>
     </div>
 
-    <div class="juego-card" onclick="location.href='catalogo/historia.html'">
-      <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/historia.png" alt="Historia" />
+    <div class="juego-card" onclick="location.href='catalogo/crosshairx.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png" alt="Crosshair X" />
       <div class="juego-info">
-        <h3>Historia</h3>
-      </div>
-    </div>
-
-    <div class="juego-card" onclick="location.href='catalogo/geografia.html'">
-      <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/greografia.png" alt="Geografía" />
-      <div class="juego-info">
-        <h3>Geografía</h3>
-      </div>
-    </div>
-
-    <div class="juego-card" onclick="location.href='catalogo/literatura.html'">
-      <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/lita.png" alt="Literatura" />
-      <div class="juego-info">
-        <h3>Literatura</h3>
-      </div>
-    </div>
-
-    <div class="juego-card" onclick="location.href='catalogo/informatica.html'">
-      <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/infoo.png" alt="Informática" />
-      <div class="juego-info">
-        <h3>Informática</h3>
-      </div>
-    </div>
-
-    <div class="juego-card" onclick="location.href='catalogo/matematica.html'">
-      <img src="https://btwon1.wordpress.com/wp-content/uploads/2025/11/mate.png" alt="Matemática" />
-      <div class="juego-info">
-        <h3>Matemática</h3>
+        <h3>Crosshair X</h3>
       </div>
     </div>
   </main>
