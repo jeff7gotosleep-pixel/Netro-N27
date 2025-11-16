@@ -505,3 +505,212 @@ body.catalogo .precio {
     height: 240px;
   }
 }
+
+/* =========================================================
+   ESTILOS EXCLUSIVOS PARA LAS PÁGINAS DENTRO DE /Materias
+   Se activan solo si el body tiene class="materias"
+   ========================================================= */
+
+body.materias {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #0b0b0b;
+  color: #fff;
+}
+
+/* ===== HEADER ===== */
+body.materias header {
+  background-color: #111;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.materias header h1 {
+  color: #d8175f;
+  font-size: 3em;
+  margin: 0;
+}
+
+body.materias button {
+  background-color: #d8175f;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+body.materias button:hover {
+  background-color: #b3144e;
+}
+
+/* ===== CONTENEDOR ===== */
+body.materias .container {
+  padding: 30px;
+}
+
+/* ===== INFO DEL ANIME ===== */
+body.materias .anime-info {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+body.materias .anime-info img {
+  max-width: 300px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+body.materias .anime-details {
+  flex: 1;
+  margin-top: -10px;
+}
+
+body.materias #anime-title {
+  font-size: 3.2em;
+  color: #d8175f;
+  margin-bottom: 5px;
+}
+
+body.materias #anime-sinopsis {
+  margin-bottom: 15px;
+}
+
+/* ===== LISTA ===== */
+body.materias .anime-details ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+body.materias .anime-details ul li {
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+body.materias .anime-details ul li strong {
+  color: #00ff37;
+  margin-right: 5px;
+}
+
+body.materias .anime-details ul li span {
+  color: #fff;
+}
+
+/* ===== BOTONES ===== */
+body.materias .action-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+body.materias .action-buttons a {
+  padding: 14px 28px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+body.materias .action-buttons .descargar {
+  background-color: #22F0AC;
+  color: #0b0b0b;
+}
+
+body.materias .action-buttons .trailer {
+  background-color: #696969;
+  color: white;
+}
+
+/* ===== SELECTOR DE TEMPORADA ===== */
+body.materias .season-selector {
+  margin: 30px 0 30px;
+  text-align: center;
+}
+
+body.materias .season-selector select {
+  background-color: #1a1a1a;
+  color: #31EBB1;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid #31EBB1;
+  font-size: 1.1em;
+}
+
+/* ===== EPISODIOS ===== */
+body.materias .episode {
+  background-color: #1a1a1a;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+body.materias .episode-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+body.materias .episode img {
+  width: 120px;
+  border-radius: 10px;
+}
+
+body.materias .episode span {
+  font-weight: bold;
+  color: #00ff99;
+}
+
+/* ===== PLAYER ===== */
+body.materias .player-card {
+  margin-top: 15px;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  display: none;
+}
+
+body.materias .player-card iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* ===== LOADING ===== */
+body.materias #loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0b0b0b;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+body.materias #loading-screen img {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+body.materias #loading-screen p {
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+}
