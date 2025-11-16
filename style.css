@@ -714,3 +714,30 @@ body.materias #loading-screen p {
   font-size: 1.2em;
   font-weight: bold;
 }
+
+/* ===== FORZAR ESTILOS DE /Materias SOBRE LOS GLOBALES ===== */
+
+body.materias {
+  background-color: #0b0b0b !important;
+  color: #fff !important;
+}
+
+body.materias header {
+  background-color: #111 !important;
+  border-bottom: none !important;
+}
+
+body.materias header h1 {
+  color: #d8175f !important;
+}
+
+body.materias button {
+  background-color: #d8175f !important;
+  color: white !important;
+}
+
+body.materias .anime-info,
+body.materias .anime-details,
+body.materias ul li span {
+  color: #fff !important;
+}
